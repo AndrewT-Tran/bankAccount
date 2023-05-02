@@ -43,3 +43,9 @@ account1.deposit(100).deposit(300).deposit(1000).withdraw(400).yield_interest().
 # To the second account, make 2 deposits and 4 withdrawals, then yield interest and display the account's info all in one line of code (i.e. chaining)
 
 account2.deposit(1000).deposit(50).withdraw(20).withdraw(20).withdraw(100).withdraw(100).yield_interest().display_account_info()
+
+# NINJA BONUS: use a classmethod to print all instances of a Bank Account's info
+@classmethod
+def get_all_info(cls):
+    for account in cls.all_accounts:
+        account.display_account_info()
