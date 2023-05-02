@@ -1,5 +1,6 @@
 from bankAccount import bankAccount
 
+
 class User:
     def __init__(self, name, email):
         self.name = name
@@ -26,8 +27,9 @@ class User:
 # Add a display_user_balance method to the User class that displays user's account balance
 
     def display_account_balance(self):
-        print(self.account.balance)
+        print("Balance: " + str(self.account.balance))
         return self
+
 
 account3 = User("Andrew", "Andrew@Tran.com")
 account3.make_deposit(100000).make_deposit(100000).display_account_balance()
