@@ -1,5 +1,6 @@
 # Create a BankAccount class with the attributes interest rate and balance
 class BankAccount:
+
     # don't forget to add some default values for these parameters!
     def __init__(self, int_rate, balance=0):
         self.int_rate = int_rate
@@ -45,7 +46,9 @@ account1.deposit(100).deposit(300).deposit(1000).withdraw(400).yield_interest().
 account2.deposit(1000).deposit(50).withdraw(20).withdraw(20).withdraw(100).withdraw(100).yield_interest().display_account_info()
 
 # NINJA BONUS: use a classmethod to print all instances of a Bank Account's info
-@classmethod
-def get_all_info(cls):
-    for account in cls.all_accounts:
-        account.display_account_info()
+# @classmethod
+# def get_all_info(cls):
+#     for account in cls.all_accounts:
+#         account.display_account_info()
+#     print(account.display_account_info())
+# account1.get_all_info()
