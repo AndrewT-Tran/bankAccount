@@ -7,7 +7,6 @@ class User:
         self.email = email
         self.account = bankAccount(int_rate=0.02, balance=0)
 
-    # other methods
 
 # Add a make_deposit method to the User class that calls on it's bank account's instance methods.
 
@@ -19,17 +18,23 @@ class User:
 
     def make_withdraw(self, amount):
         self.account.balance -= amount
-        if self.account.balance < amount:
-            print("Insufficient funds: Charging a $5 fee")
-        self.account.balance -= 5
-        return self.account.balance
+        return self
 
 # Add a display_user_balance method to the User class that displays user's account balance
 
     def display_account_balance(self):
-        print("Balance: " + str(self.account.balance))
+        print("User: " + self.name, "|| Balance: " + str(self.account.balance))
+        return self
+
+# SENPAI BONUS: Add a transfer_money(self, amount, other_user) method to the user class that takes an amount and a different User instance, and transfers money from the user's account into another user's account.
+    def transfer_money(self, amount, other_user):
+        self.account.balance -= amount
+        other_user.account.balance += amount
         return self
 
 
 account3 = User("Andrew", "Andrew@Tran.com")
-account3.make_deposit(100000).make_deposit(100000).display_account_balance()
+account3.make_deposit(100000).make_withdraw(700).display_account_balance()
+
+
+# SENSEI BONUS: Allow a user to have multiple accounts; update methods so the user has to specify which account they are withdrawing or depositing to
