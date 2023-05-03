@@ -2,10 +2,13 @@ from bankAccount import bankAccount
 
 
 class User:
-    def __init__(self, name, email, accountType):
+    def __init__(self, name, email, accountType = "Checking"):
         self.name = name
         self.email = email
         self.account = bankAccount(int_rate=0.02, balance=0)
+        self.accountType = accountType
+
+
         # self.bankAccount_Type = ("Checking", "Savings")
 # need to figure out how to assign account type to user and create multiple accounts for user
 
@@ -35,9 +38,34 @@ class User:
         other_user.account.balance += amount
         return self
 
+class UserSaving(bankAccount):
+    def __init__(self, name, email, accountType="Savings"):
+        super().__init__(name, email)
+        self.accountType = accountType
+
+    def make_deposit(self, amount, accountType):
+        if accountType == "Savings":
+            self.account.balance += amount
+            return self
+        else:
+            super().make_deposit(self, amount)
+    def make_withdraw(self, amount, accountType):
+        if accountType == " ":
+            print("Please specify account type")
+        elif accountType == "Savings":
+            self.account.balance -= amount
+            return self
+        else:
+            super().make_withdraw(self, amount)
+
+
 
 bigBoss = User("Monty Python", "monty@python.com", "Checking")
-account3 = User("Andrew T", "andrew.tran@gmail.com", "Savings")
+account3 = User("Andrew T", "andrew.tran@gmail.com", "Checking")
+Drew = UserSaving("Andrew T", "drew@drew.com", "Savings")
+Drew2 = User("Andrew T", "drew.drew.com", "Checking")
+print(Drew.accountType)
+print(Drew2.accountType) #need to see if tehre is a way that drew and drew2 are the same user but have different account types
 account3.make_deposit(100000).make_withdraw(700).display_account_balance()
 bigBoss.transfer_money(40, account3)
 
