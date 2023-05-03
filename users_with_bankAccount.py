@@ -40,6 +40,5 @@ bigBoss = User("Monty Python", "monty@python.com", "Checking")
 account3 = User("Andrew T", "andrew.tran@gmail.com", "Savings")
 account3.make_deposit(100000).make_withdraw(700).display_account_balance()
 bigBoss.transfer_money(40, account3)
-account3.me
 
 # SENSEI BONUS: Allow a user to have multiple accounts; update methods so the user has to specify which account they are withdrawing or depositing to
